@@ -1,90 +1,155 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const App = () => {
 
-  const [title, setTitle] = useState('')
-  const [details, setDetails] = useState('')
+  // const [title, setTitle] = useState('')
+  // const [details, setDetails] = useState('')
 
-  const [task, setTask] = useState([])
+  // const [task, setTask] = useState([])
 
-  const submitHandler = (e) => {
-    e.preventDefault()
+  // const submitHandler = (e) => {
+  //   e.preventDefault()
 
-    const copyTask = [...task];
+  //   const copyTask = [...task];
 
-    copyTask.push({ title, details })
+  //   copyTask.push({ title, details })
 
-    setTask(copyTask)
+  //   setTask(copyTask)
 
-    setTitle('')
-    setDetails('')
-  }
+  //   setTitle('')
+  //   setDetails('')
+  // }
 
 
-  const deleteNote = (idx) => {
-    const copyTask = [...task];
+  // const deleteNote = (idx) => {
+  //   const copyTask = [...task];
 
-    copyTask.splice(idx, 1)
+  //   copyTask.splice(idx, 1)
 
-    setTask(copyTask)
-  }
+  //   setTask(copyTask)
+  // }
+
+  // const[num, setNum] = useState(0)
+  // const[num2, setNum2] = useState(100)
+
+  // useEffect(function(){
+  //   console.log("Running useEffect");
+  // },[])
+
+
+  // const [a, setA] = useState(0)
+  // const [b, setB] = useState(0)
+
+  // function aChanging() {
+  //   console.log('A ki value change ho gyi');
+  // }
+
+  // function bChanging() {
+  //   console.log('B ki value change ho gyi');
+  // }
+
+  // useEffect(function(){
+  //   aChanging()
+  // },[a])
+  
+  // useEffect(function(){
+  //   bChanging()
+  // },[b])
+
+
+
 
   return (
-    <div className='h-screen lg:flex bg-black text-white'>
+    // <div className='h-screen lg:flex bg-black text-white'>
 
-      <form onSubmit={(e) => {
-        submitHandler(e)
-      }} className='flex gap-4 lg:w-1/2 p-10 flex-col items-start'>
+    //   <form onSubmit={(e) => {
+    //     submitHandler(e)
+    //   }} classN ame='flex gap-4 lg:w-1/2 p-10 flex-col items-start'>
 
-        <h1 className='text-4xl mb-2 font-bold'>Add Notes</h1>
+    //     <h1 className='text-4xl mb-2 font-bold'>Add Notes</h1>
 
-        {/* PEHLA INPUT FOR HEADING */}
-        <input
-          type="text"
-          placeholder='Enter Notes Heading'
-          className='px-5 w-full font-medium py-2 border-2 outline-none rounded '
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value)
-          }}
-        />
+    //     {/* PEHLA INPUT FOR HEADING */}
+    //     <input
+    //       type="text"
+    //       placeholder='Enter Notes Heading'
+    //       className='px-5 w-full font-medium py-2 border-2 outline-none rounded '
+    //       value={title}
+    //       onChange={(e) => {
+    //         setTitle(e.target.value)
+    //       }}
+    //     />
 
-        {/* DETAILED VALA INPUT  */}
-        <textarea
-          type="text"
-          className='px-5 w-full font-medium h-32 py-2 flex items-start flex-row border-2 outline-none  rounded '
-          placeholder='Write Details here'
-          value={details}
-          onChange={(e) => {
-            setDetails(e.target.value)
-          }}
-        />
+    //     {/* DETAILED VALA INPUT  */}
+    //     <textarea
+    //       type="text"
+    //       className='px-5 w-full font-medium h-32 py-2 flex items-start flex-row border-2 outline-none  rounded '
+    //       placeholder='Write Details here'
+    //       value={details}
+    //       onChange={(e) => {
+    //         setDetails(e.target.value)
+    //       }}
+    //     />
 
-        <button
-          className='bg-white active:scale-95 font-medium w-full outline-none  text-black px-5 py-2 rounded'
-        >
-          Add Note
-        </button>
+    //     <button
+    //       className='bg-white active:scale-95 font-medium w-full outline-none  text-black px-5 py-2 rounded'
+    //     >
+    //       Add Note
+    //     </button>
 
-      </form>
-      <div className='lg:w-1/2 lg:border-l-2  p-10'>
-        <h1 className='text-4xl font-bold'>Recent Notes</h1>
-        <div className='flex flex-wrap items-start justify-start gap-5 mt-6 h-[90%] overflow-auto'>
-          {task.map(function (elem, idx) {
+    //   </form>
+    //   <div className='lg:w-1/2 lg:border-l-2  p-10'>
+    //     <h1 className='text-4xl font-bold'>Recent Notes</h1>
+    //     <div className='flex flex-wrap items-start justify-start gap-5 mt-6 h-[90%] overflow-auto'>
+    //       {task.map(function (elem, idx) {
 
-            return <div key={idx} className=" flex justify-between flex-col items-start relative h-52 w-40 bg-cover rounded-xl text-black pt-9 pb-4 px-4 bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')]">
-              <div>
-                <h3 className='leading-tight text-lg font-bold'>{elem.title}</h3>
-                <p className='mt-2 leading-tight text-xs font-semibold text-gray-600'>{elem.details}</p>
-              </div>
-              <button onClick={() => {
-                deleteNote(idx)
-              }} className='w-full cursor-pointer active:scale-95 bg-red-500 py-1 text-xs rounded font-bold text-white'>Delete</button>
-            </div>
-          })}
-        </div>
-      </div>
+    //         return <div key={idx} className=" flex justify-between flex-col items-start relative h-52 w-40 bg-cover rounded-xl text-black pt-9 pb-4 px-4 bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')]">
+    //           <div>
+    //             <h3 className='leading-tight text-lg font-bold'>{elem.title}</h3>
+    //             <p className='mt-2 leading-tight text-xs font-semibold text-gray-600'>{elem.details}</p>
+    //           </div>
+    //           <button onClick={() => {
+    //             deleteNote(idx)
+    //           }} className='w-full cursor-pointer active:scale-95 bg-red-500 py-1 text-xs rounded font-bold text-white'>Delete</button>
+    //         </div>
+    //       })}
+    //     </div>
+    //   </div>
+    // </div>
+
+    // <div>
+    //   <h1>num is {num}</h1>
+    //   <h1>num2 is {num2}</h1>
+    //   <button 
+    //   onMouseEnter={()=>{
+    //     setNum(num+1)
+    //   }}
+    //   onMouseLeave ={()=>{
+    //     setNum2(num2+10)
+    //   }}
+    //   >click </button>
+    // </div>
+
+
+    // <div>
+    //   <h1>A is {a}</h1>
+    //   <h1>B is {b}</h1>
+    //   <button
+    //     onClick={() => {
+    //       setA(a + 1)
+    //     }}
+    //   >Change A</button>
+    //   <button
+    //     onClick={() => {
+    //       setB(b - 1)
+    //     }}
+    //   >Change B</button>
+    // </div>
+
+    <div>
+      
     </div>
+
+
   )
 }
 
