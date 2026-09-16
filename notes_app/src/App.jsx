@@ -129,7 +129,6 @@ const App = () => {
     //   >click </button>
     // </div>
 
-
     // <div>
     //   <h1>A is {a}</h1>
     //   <h1>B is {b}</h1>
@@ -146,7 +145,7 @@ const App = () => {
     // </div>
 
     <div>
-      
+
     </div>
 
 
