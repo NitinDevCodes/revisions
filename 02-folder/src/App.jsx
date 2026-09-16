@@ -2,20 +2,31 @@ import React, {useState} from 'react'
 
 const App = () => {
 
-  const[num, setNum] = useState(0)
+  const[num, setNum] = useState({user:'Nitin', age:22})
 
-  function increseNum(){
-    setNum(num+1)
+  const btnClicked = ()=>{
+    const newNum = {...num}
+    newNum.user = 'Nikhil'
+    setNum(newNum)
   }
-  function decreaseNum(){
-    setNum(num-1)
-  }
+
+  // function increseNum(){
+  //   setNum(num+1)
+  // }
+  // function decreaseNum(){
+  //   setNum(num-1)
+  // }
   return (
+
     <div>
-      <h1>{num}</h1>
-      <button onClick={increseNum}>increse</button>
-      <button onClick={decreaseNum}>decrease</button>
+      <h1>{num.user}, {num.age}</h1>
+      <button onClick={btnClicked}>click</button>
     </div>
+    // <div>
+    //   <h1>{num}</h1>
+    //   <button onClick={increseNum}>increse</button>
+    //   <button onClick={decreaseNum}>decrease</button>
+    // </div>
   )
 }
 
